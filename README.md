@@ -45,5 +45,5 @@ Purpose of the Query:
     The filtering condition ensures that only Event Masters matching a specific name pattern are considered.
     The use of COUNT_DISTINCT ensures that duplicate references to the same Event Master in MANAERP__Event_Master_Target_Location__c are not counted multiple times.
 
-SOQL:
-Count distinct total participant in 1k event master 
+check_student_can_see_eventmaster.py file: Count distinct total participant can see 1k event master
+
