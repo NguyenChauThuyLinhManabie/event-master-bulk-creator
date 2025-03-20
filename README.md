@@ -27,6 +27,10 @@ curl -X POST   https://pre-prod-manabie.my.salesforce.com/services/oauth2/token 
 Bulk creation of 500 activity events for each event master across 1,000 event masters:
 import 1k event master then use SOQL to get id, name -> create activity event base on event master id list (file import_requests.py)
 
+Get location id list from Account table by following SOQL:
+SELECT id FROM account where MANAERP__Location_Type__c = 'Center' and MANAERP__Record_Type_Developer_Name__c = 'Location' => save as location_id.json file
+Get event master id list from MANAERP__Event_Master__c by following SOQL:
+SELECT Id from MANAERP__Event_Master__c where Name like '%Verify epic LT-73558 Part 1 with 1k event master%'
 File update_target_location.py to update target location for each event master by API, because of request limitation so we can post 200 event master id /per time.
 
 SOQL: 
@@ -41,3 +45,5 @@ Purpose of the Query:
     The filtering condition ensures that only Event Masters matching a specific name pattern are considered.
     The use of COUNT_DISTINCT ensures that duplicate references to the same Event Master in MANAERP__Event_Master_Target_Location__c are not counted multiple times.
 
+SOQL:
+Count distinct total participant in 1k event master 
